@@ -1,0 +1,12 @@
+<div class="post_new">
+  <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
+   <div class="field">
+     <%= f.label :"Create a New Post",class: "label" %>
+     <br>
+     <%= f.text_area :body,:size => "50x5",class:"text_area" %>
+   </div>
+   <div class="action">
+     <%= f.submit "Post", class: "btn btn-warning"%>
+   </div>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<div class="post_show">
+<%= @post.body %>
+
+
+<%= form_for [@post,@comment] do |f| %>
+ <div class="field">
+   <%= f.label :body,"コメントしてね" %>
+   <br>
+   <%= f.text_field :body,size: 300 %>
+ </div>
+ <div class="action">
+   <%= f.submit "Create Post", class: "btn btn-primary"%>
+ </div>
+<% end %>
+
+
+
+<% @comments.each do |comment| %>
+  <%= comment.body %>
+  <br>
+  ==========================================
+  <br>
+<% end %>

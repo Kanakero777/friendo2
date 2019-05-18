@@ -1,0 +1,9 @@
+<div class="post_index">
+<% @posts.each do |t|  %>
+  <div>
+    <%= t.body %>
+    <br>
+    <%= t.created_at %>
+  </div>
+<% end %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

@@ -1,0 +1,240 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tops_index{
+  font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
+  header{
+    background-color:white;
+    position:fixed;
+    height:70px;
+    width:100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;//上下の真ん中にする
+
+  .logo{
+    color:#FF3B00;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-start;
+    float:right;
+    margin-left: 80px;
+  }
+  .nav-list{
+    align-items: center;
+    margin-left: auto;
+    display: flex;
+    width: 600px;
+  }
+    nav {
+      margin-right: 5%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #FF3B00;
+    }
+    .btn{
+    width:150px; //背景をなしにします
+    border-bottom: solid 4px #627295;
+}
+  }
+  #first-block {
+    height: 700px;
+    background-image: image-url("sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #second-block {
+     background-color: white;
+     height: 730px;
+     .second-title{
+       margin-left:20px;
+       margin-top:20px;
+       height:80px;
+       width:400px;
+       background-color:#FF6E00;
+       border-radius: 20px;
+       font-size:2.5rem;
+       align-items: center;
+       text-align: center;
+       line-height: 90px;
+       box-shadow: 5px 5px 10px 5px  grey;
+     }
+     .second-contents{
+       display: flex;
+       margin-top:30px;
+
+        .box{
+          height:650px;
+          width:100%;
+          box-sizing: border-box;
+        }
+        .title{
+          text-align: center;
+          line-height: 90px;
+          font-size:2rem;
+        }
+        .japan{
+
+        }
+        .international{
+
+        }
+        .free{
+
+        }
+        .image-japan{
+          background-image: image-url("japan.jpg");
+          background-size: cover;
+          margin-left:60px;
+          height:300px;
+          width:300px;
+          box-shadow: 5px 5px 10px 5px  grey;
+          }
+        .image-japan:hover{
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+
+        .image-international{
+          background-image: image-url("international.jpg");
+          background-size: cover;
+          margin-top:20px;
+          margin-left:70px;
+          height:250px;
+          width:300px;
+          box-shadow: 5px 5px 10px 5px  grey;
+        }
+        .image-international:hover{
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+        .image-free{
+          background-image: image-url("free.jpg");
+          background-size:  cover;
+          margin-left:70px;
+          height:300px;
+          width:300px;
+          box-shadow: 5px 5px 10px 5px  grey;
+        }
+        .image-free:hover{
+          transform: scale(1.1);
+          transition-duration: 0.5s;
+        }
+        .description-japan{
+          margin-top:30px;
+          margin-left:30px;
+          margin-right:30px;
+          font-size:1.5rem;
+        }
+        .description-international{
+          margin-top:60px;
+          margin-left:30px;
+          margin-right:30px;
+          font-size:1.5rem;
+        }
+        .description-free{
+          margin-top:30px;
+          margin-left:30px;
+          margin-right:30px;
+          font-size:1.5rem;
+        }
+      }
+  }
+  #third-block {
+     background-color: red;
+     height: 700px;
+  }
+  #fourth-block {
+     height: 800px;
+     display: grid;
+     .fourth-title{
+       margin-left:20px;
+       margin-top:20px;
+       height:80px;
+       width:350px;
+       background-color:#FF6E00;
+       font-size:2.5rem;
+       align-items: center;
+       text-align: center;
+       line-height: 90px;
+       box-shadow: 5px 5px 10px 5px  grey;
+     }
+     .for-japanese{
+       z-index: 5;
+       transition: all 0.5s;
+       display: grid;
+       grid-template-rows: 100px 200px;
+       grid-template-columns: 200px 300px;
+       margin-top:50px;
+       margin-left:30px;
+       background-color: #FFD07F;
+       height:400px;
+       width:700px;
+       box-shadow: 5px 5px 10px 5px  grey;
+       .image-japanese{
+         grid-row: 2 / 3;
+         grid-column: 1 / 2;
+         background-image: image-url("japanese.png");
+         background-size:  cover;
+         height:200px;
+         width:170px;
+       }
+       .description-japanese{
+         grid-row: 2 / 4;
+         grid-column: 2 / 4;
+         font-size:1.6rem;
+       }
+     }
+     .for-japanese:hover{
+        z-index: 15;
+        visibility: visible;
+     }
+     .for-nonjapanese{
+       z-index: 10;
+       position:relative;
+       top:-200px;
+       left:700px;
+       display: grid;
+       grid-template-rows: 100px 200px;
+       grid-template-columns: 500px 300px;
+       background-color: #E59500;
+       height:400px;
+       width:700px;
+       box-shadow: 5px 5px 10px 5px  grey;
+       .image-nonjapanese{
+         grid-row: 2 / 3;
+         grid-column: 2 / 3;
+         background-image: image-url("nonjapanese.png");
+         background-size:  cover;
+         height:200px;
+         width:170px;
+       }
+       .description-nonjapanese{
+        margin-left:30px;
+        grid-row: 2 / 4;
+        grid-column: 1 / 2;
+        font-size:1.6rem;
+       }
+
+     }
+     .title4{
+       grid-row: 1 / 2;
+       grid-column:1 /3;
+       margin-left:15px;
+       margin-top:15px;
+       font-size:2.2rem;
+     }
+  }
+}

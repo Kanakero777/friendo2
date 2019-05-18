@@ -1,0 +1,44 @@
+<div class="modal fade" id="signUpModal">
+  <!-- <div class="modal-content"> -->
+  <div class="modal-dialog container">
+    <button type="button" class="close" data-dismiss="modal">
+      <span>&times;</span>
+    </button>
+      <div class="modal-header header">
+        <div class="col-md-9">
+        <h5 class="modal-title"><h1>Sign Up</h1></h5>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+              <%= f.text_field :username, autofocus: true,placeholder:"Username", class:"col-md-11"%>
+            </div>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"col-md-11" %>
+            </div>
+
+          <div class="field">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off",placeholder:"Password", class:"col-md-11" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off",placeholder:"Password Confirmation", class:"col-md-11"%>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+</div>
