@@ -1,0 +1,13 @@
+<div class="show_follower">
+  <% @user.followers.each do |user| %>
+   <div class="follower_image">
+     <%if user.uid == nil%>
+      <%= link_to image_tag ("#{user.profile.image}"), user_path(user)%>
+     <% else %>
+      <%= image_tag ("#{user.facebook_image}")%>
+     <% end %>
+   </div>
+     <%= user.profile.username %>
+    <%= link_to user.profile.username, user_path(user) %><br>
+  <% end %>
+</div>

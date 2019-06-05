@@ -10,19 +10,19 @@ class PostsController < ApplicationController
   end
 
   def create
-  @post = Post.new(post_params)
-  @post.user_id = current_user.id
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
-  #新しいTweetの保存に成功した場合
-  if @post.save
-    #index.html.erbにページが移る
-    redirect_to action: "index"
-  #新しいTweetの保存に失敗した場合
-  else
-    #もう一回投稿画面へ
-    redirect_to action: "new"
-  end
- end
+    #新しいTweetの保存に成功した場合
+    if @post.save
+      #index.html.erbにページが移る
+      redirect_to action: "index"
+    #新しいTweetの保存に失敗した場合
+    else
+      #もう一回投稿画面へ
+      redirect_to action: "new"
+    end
+   end
 
  def show
    @post = Post.find(params[:id])

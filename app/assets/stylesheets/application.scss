@@ -17,3 +17,84 @@
  * It is generally better to create a new file per style scope.
  *
  */
+header{
+  font-family:sofia-pro,"Noto Sans","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+  z-index: 100;
+  background-color:white;
+  border-bottom:solid 1px;
+  position:fixed;
+  height:70px;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;//上下の真ん中にする
+  .logo{
+    color:#FF3B00;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-start;
+    float:right;
+    margin-left: 80px;
+  }
+  .link-lists{
+    align-items: center;
+    margin-left: auto;
+    width: 900px;
+    margin-right: 3%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-end;
+    .Home{
+      align-items: center;
+      .home-icon{
+        padding-top:5px;
+        width:30px;
+        height:30px;
+      }
+      .home-link{
+      }
+    }
+    .Mypage{
+      margin-left:5%;
+     .user-icon{
+       padding-top:5px;
+       width:30px;
+       height:30px;
+     }
+     .mypage-link{
+
+     }
+   }
+    .Lookup{
+     margin-left:5%;
+     .lookup-icon{
+       padding-top:5px;
+       width:30px;
+       height:30px;
+     }
+     .lookup-link{
+
+     }
+    }
+    .Message{
+      margin-left:5%;
+      .message-icon{
+       padding-top:5px;
+       width:30px;
+       height:30px;
+      }
+    }
+    .Notification{
+      margin-left:5%;
+      .notification-icon{
+        padding-top:5px;
+        width:30px;
+        height:30px;
+      }
+    }
+
+  }
+}

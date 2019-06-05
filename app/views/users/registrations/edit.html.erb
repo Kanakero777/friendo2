@@ -1,95 +1,148 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="user_edit">
+  <div class="userInfo">
+    <h2>Edit <%= resource_name.to_s.humanize %> Information</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :image %><br />
-      <%= f.text_field :image %>
-    </div>
-    <div class="field">
-      <%= f.label :"Real name" %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :birthday %><br />
-      <%= f.text_field :birthday %>
-    </div>
-    <div class="field">
-      <%= f.label :sex %><br />
-      <%= f.text_field :sex %>
-    </div>
-    <div class="field">
-      <%= f.label :"Home Country" %><br />
-      <%= f.text_field :homeCountry %>
-    </div>
-    <div class="field">
-      <%= f.label :"Native Language" %><br />
-      <%= f.text_field :nativeLanguage %>
-    </div>
-    <div class="field">
-      <%= f.label :"Learning Language" %><br />
-      <%= f.text_field :newLanguage %>
-    </div>
-    <div class="form-select">
-      <%= f.label :"Language Level" %><br />
-      <%= f.select :languageLevel,[["Beginner","Beginner"],["Elementary","Elementary"],["Intermediate","Intermediate"],["Advanced","Advanced"],["Proficient","Proficient"]],class:"form-control" %>
-    </div>
-    <div class="field">
-      <%= f.label :job %><br />
-      <%= f.text_field :job %>
-    </div>
-    <div class="field">
-      <%= f.label :residence %><br />
-      <%= f.text_field :residence %>
-    </div>
-    <div class="area">
-      <%= f.label :introduction %><br />
-      <%= f.text_area :introduction %>
-    </div>
-    <div class="field">
-      <%= f.label :like %><br />
-      <%= f.text_field :like %>
-    </div>
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <%= form_for @profile do |f| %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="circle-avatar">
+        <!-- <img id="avatar_img_prev" src="#" class='hidden' />  <!-- 1行追加 -->
+        <%= image_tag current_user.image_show, id: "image_prev",class: 'hidden' %>    <!-- classを追加 -->
+
+        <% if current_user.image_show != 'no_avatar.png' %>
+          <%= f.hidden_field :image %>
+        <% end %>
+        <%= f.file_field :image, id:'post_img' %>   <!-- idを追加 -->
+      </div>
+
+      <div class="field">
+        <div class="label">Real Name</div>
+        <%= f.text_field :name, placeholder:"first name/family name" %>
+      </div>
+
+      <div class="field">
+        <div class="label">Username</div>
+        <%= f.text_field :username %>
+      </div>
+
+      <div class="field">
+        <div class="label">Birthday</div>
+        <div class="imput_field">
+        <%= f.text_field :birthday, placeholder:"year/month/day" %>
+        </div>
+      </div>
+      <div class="form-select">
+        <div class="label">Age</div>
+        <%= f.select :age,[["18","18"],["19","19"],["20","20"],["21","21"],["22","22"],["23","23"],["24","24"],["25","25"],["26","26"],["27","27"],["28","28"],["21","21"],["29","29"],["30","30"],["31","31"],["32","32"],["33","33"],["34","34"],["35","35"],["36","36"],["37","37"],["38","38"],["39","39"],["40","40"],["or older","or older"]],class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <div class="label">Sex</div>
+        <%= f.select :sex,[["male","male"],["female","female"],["other","other"]],class:"form-control"%>
+      </div>
+
+      <div class="field">
+        <div class="label">Home Country</div>
+        <%= f.text_field :homeCountry %>
+      </div>
+
+      <div class="field">
+        <div class="label">Native Language</div>
+        <%= f.text_field :nativeLanguage %>
+      </div>
+
+      <div class="field">
+        <div class="label">Learning Language</div>
+        <%= f.text_field :newLanguage %>
+      </div>
+
+      <div class="form-select">
+        <div class="label">Language Level</div>
+        <%= f.select :languageLevel,[["Beginner","Beginner"],["Elementary","Elementary"],["Intermediate","Intermediate"],["Advanced","Advanced"],["Proficient","Proficient"]],class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <div class="label">Job</div>
+        <%= f.text_field :job %>
+      </div>
+
+      <div class="field">
+        <div class="label">Residence</div>
+        <%= f.text_field :residence,placeholder:"city" %>
+      </div>
+
+      <div class="area">
+        <div class="label">Self-Introduction</div>
+        <%= f.text_area :introduction,size: "50x6" %>
+      </div>
+      <%= f.submit "Update", class: "btn btn-primary btn-lg" %>
     <% end %>
+
+      <hr>
+      <%if current_user.uid == nil%>
+
+        <h4>Log In Information</h4>
+        <div class="field">
+          <div class="label">Email</div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.email_field :email,size:"30", autofocus: true, autocomplete: "email" %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <div class="label">New Password<br> (leave blank if you don't want to change it)</div><br>
+          <br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+        <div class="field">
+        <div class="label">Password Confirmation</div><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <div class="field">
+          <div class="label">Current Password<br>(we need your current password to confirm your changes)</div> <br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Update", class: "btn btn-primary btn-lg" %>
+          <%link_to:users_show_path %>
+        </div>
+      <% end %>
+
+     <div class="cancel">
+  If you want to cancel your account, click below
+      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+
+      <%= link_to "Back", :back %>
+      <% end %>
+     </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <script>
+    $( document ).on('turbolinks:load', function() {
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+          reader.onload = function (e) {
+            $('#image_prev').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+      $("#post_img").change(function(){
+        $('#image_prev').removeClass('hidden');
+        $('.image_present_img').remove();
+        readURL(this);
+      });
+    });
+  </script>

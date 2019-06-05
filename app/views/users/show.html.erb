@@ -1,18 +1,84 @@
 <div class="user_show">
- <%= @user.username %>
- <%= @user.image %>
- <%= @user.name %>
- <%= @user.birthday %>
- <%= @user.sex %>
- <%= @user.homeCountry %>
- <%= @user.nativeLanguage%>
- <%= @user.newLanguage%>
- <%= @user.languageLevel%>
- <%= @user.job%>
- <%= @user.residence%>
- <%= @user.introduction%>
- <%= @user.like%>
-
- <%= link_to "ユーザー編集",edit_user_registration_path %>
- <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-</div>
+    <div class="mypage">
+      <div class="first-block">
+        <div class="image">
+          <%=image_tag @user.image_show %>
+        </div>
+        <div class="username">
+          <% if @user.profile != nil %>
+            <%= @user.profile.username %>
+          <% end %>
+        </div>
+        <div class="to_edit">
+          <% if @user == current_user %>
+           <%= link_to "Edit Info", edit_user_registration_path, class:"edit_button"%>
+          <% else %>
+          <div id="follow_form">
+             <% if current_user.following?(@user) %>
+               <%= render 'unfollow' %>
+             <% else %>
+               <%= render 'follow' %>
+             <% end %>
+          </div>
+          <% end %>
+        </div>
+          <% if @user.profile != nil %>
+        <div class="nativeLanguage">
+          Native:<br><%= @user.profile.nativeLanguage%>
+        </div>
+        <div class="newLanguage">
+          Learn:<br><%= @user.profile.newLanguage%>
+        </div>
+        <div class="posts">
+          Posts<br>45
+        </div>
+        <div class="following">
+          Following<br>
+          <a href="<%= following_user_path(@user) %>">
+           <strong id="following" class="stat">
+             <%= @user.followings.count %>
+           </strong>
+          </a>
+        </div>
+        <div class="follower">
+          Follower<br>
+          <a href="<%= followers_user_path(@user) %>">
+            <strong id="followers" class="stat">
+              <%= @user.followers.count %>
+            </strong>
+          </a>
+        </div>
+      </div>
+      <div class="second-block">
+        <div class="introduction">
+          <%= @user.profile.introduction%>
+        </div>
+      </div>
+      <div class="third-block">
+        <h3>User Profile</h3>
+        <div class="homeCountry">
+        Home Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.homeCountry %>
+        </div>
+        <div class="nativeLanguage">
+          Native language:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.nativeLanguage%>
+        </div>
+        <div class="newLanguage">
+          Learning Language:&nbsp;&nbsp;&nbsp;<%= @user.profile.newLanguage%>
+        </div>
+        <div class="languageLevel">
+        Language level:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.languageLevel%>
+        </div>
+        <div class="age">
+        Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.age %>
+        </div>
+        <div class="job">
+        Job:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.job%>
+        </div>
+        <div class="residence">
+        Residence:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @user.profile.residence%>
+        </div>
+       </div>
+      <% end %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+    </div>
+  </div>

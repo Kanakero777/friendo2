@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_060053) do
+ActiveRecord::Schema.define(version: 2019_05_29_093714) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -20,11 +20,58 @@ ActiveRecord::Schema.define(version: 2019_05_14_060053) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "others", force: :cascade do |t|
+    t.string "name"
+    t.string "sex"
+    t.string "age"
+    t.string "homeCountry"
+    t.string "nativeLanguage"
+    t.string "residence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "username"
+    t.string "image"
+    t.string "name"
+    t.string "birthday"
+    t.string "sex"
+    t.string "homeCountry"
+    t.string "nativeLanguage"
+    t.string "newLanguage"
+    t.string "languageLevel"
+    t.string "job"
+    t.string "residence"
+    t.text "introduction"
+    t.string "hobby"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "age"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "tops", force: :cascade do |t|
@@ -41,21 +88,10 @@ ActiveRecord::Schema.define(version: 2019_05_14_060053) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
-    t.string "image"
-    t.string "name"
-    t.integer "birthday"
-    t.string "sex"
-    t.string "homeCountry"
-    t.string "nativeLanguage"
-    t.string "newLanguage"
-    t.string "languageLevel"
-    t.string "job"
-    t.string "residence"
-    t.text "introduction"
-    t.string "like"
     t.string "uid"
     t.string "provider"
+    t.string "facebook_image"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

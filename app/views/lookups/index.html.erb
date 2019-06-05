@@ -1,0 +1,22 @@
+<div class="lookups">
+<h3>Find New Friends</h3>
+
+  <%= form_tag(controller:"lookups",action:"index") do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search',:name => nil %>
+  <% end %>
+
+    <% @search.each do |hoge| %>
+     <% if hoge.user_id != current_user.id %>
+             <h6>Name:<%= hoge.name %></h6>
+             <h6>Sex:<%= hoge.sex %></h6>
+             <h6>Age:<%= hoge.age %></h6>
+             <h6>Home Country:<%= hoge.homeCountry %></h6>
+             <h6>Native Language:<%= hoge.nativeLanguage %></h6>
+             <h6>Residence:<%= hoge.residence %></h6>
+             <%= link_to "View more details", "/users/#{hoge.user_id}" %>
+             <%= "======================" %>
+      <% end %>
+    <br>
+        <% end %>
+</div>

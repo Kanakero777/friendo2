@@ -15,9 +15,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    if current_user.profile == nil
+      @profile = Profile.new
+    else
+      @profile = current_user.profile
+    end
+    super
+
+  end
 
   # PUT /resource
   # def update
@@ -59,4 +65,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  protect_from_forgery except: :update
+  protected
+  def after_update_path_for(resource)
+      users_show_path
+    end
 end

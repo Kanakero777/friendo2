@@ -1,9 +1,10 @@
 <div class="post_index">
-<% @posts.each do |t|  %>
-  <div>
+   <% @posts.each do |t|  %>
+   <div class="post">
     <%= t.body %>
     <br>
-    <%= t.created_at %>
+    <%= time_ago_in_words(t.created_at) %>&nbsp;ago
   </div>
-<% end %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+   <% end %>
+   <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+</div>

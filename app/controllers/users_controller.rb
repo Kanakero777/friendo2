@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def search
@@ -10,5 +10,17 @@ class UsersController < ApplicationController
 
   def detail
     @detail = User.find(params[:id])
+  end
+
+  def following
+      @user  = User.find(params[:id])
+      @users = @user.followings
+      render 'show_follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
   end
 end

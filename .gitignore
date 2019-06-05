@@ -31,3 +31,6 @@
 /config/master.key
 #d6ebafe3f185ba281860005067fa742a
 /.env
+
+# Ignore dotenv
+/.env

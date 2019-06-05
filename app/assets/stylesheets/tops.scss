@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .tops_index{
-  font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
+  overflow-x: hidden;
+  font-family:sofia-pro,"Noto Sans","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
   header{
+    z-index: 100;
     background-color:white;
     position:fixed;
     height:70px;
@@ -12,11 +14,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;//上下の真ん中にする
-
   .logo{
     color:#FF3B00;
     font-weight: bold;
     font-style: italic;
+    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     font-size: 2rem;
     display: flex;
     align-items: flex-start;
@@ -27,12 +29,11 @@
     align-items: center;
     margin-left: auto;
     display: flex;
-    width: 600px;
+    width: 650px;
   }
     nav {
       margin-right: 5%;
       font-size: 1.2rem;
-      font-weight: bold;
       display: flex;
     }
 
@@ -43,17 +44,49 @@
 
     nav a:hover {
       color: #FF3B00;
+      background-color: white;
     }
     .btn{
-    width:150px; //背景をなしにします
-    border-bottom: solid 4px #627295;
-}
+      width:150px; //背景をなしにします
+      border-bottom: solid 4px #627295;
+    }
+    .logout{
+    }
+    a:hover{
+      background-color: white;
+    }
   }
   #first-block {
     height: 700px;
-    background-image: image-url("sunset.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    width:100%;
+    .background{
+      height: 100%;
+      width:100%;
+      background-attachment: fixed;
+      background-image: image-url("sunset.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter:brightness(70%);
+    }
+    .signUp {
+      cursor:pointer;
+      position: absolute;
+      top:15%;
+      left:86%;
+      padding: 10px 20px;
+      border: solid 3px #fff;
+      border-radius: 3px;
+      color: #fff;
+      text-decoration: none;
+      font-size:2rem;
+
+      //padding-left: 600px;
+
+    }
+    .signUp:hover{
+      color:rgba(0,0,0,0.5);
+      background-color: rgba(255,255,255,0.3);
+    }
   }
   #second-block {
      background-color: white;
@@ -171,17 +204,22 @@
        line-height: 90px;
        box-shadow: 5px 5px 10px 5px  grey;
      }
+
      .for-japanese{
-       z-index: 5;
-       transition: all 0.5s;
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+       -webkit-transition: all .3s;
+       transition: all .3s;
+       margin: 10px 0 0 0;
        display: grid;
        grid-template-rows: 100px 200px;
        grid-template-columns: 200px 300px;
        margin-top:50px;
-       margin-left:30px;
+       margin-left:10px;
        background-color: #FFD07F;
        height:400px;
-       width:700px;
+       width:680px;
        box-shadow: 5px 5px 10px 5px  grey;
        .image-japanese{
          grid-row: 2 / 3;
@@ -198,20 +236,28 @@
        }
      }
      .for-japanese:hover{
-        z-index: 15;
-        visibility: visible;
+       z-index: 15;
+       -webkit-transform: translateY(-30px);
+       -ms-transform: translateY(-30px);
+       transform: translateY(-30px);
      }
      .for-nonjapanese{
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+       -webkit-transition: all .3s;
+       transition: all .3s;
+       margin: 10px 0 0 0;
        z-index: 10;
        position:relative;
        top:-200px;
-       left:700px;
+       left:680px;
        display: grid;
        grid-template-rows: 100px 200px;
        grid-template-columns: 500px 300px;
        background-color: #E59500;
        height:400px;
-       width:700px;
+       width:680px;
        box-shadow: 5px 5px 10px 5px  grey;
        .image-nonjapanese{
          grid-row: 2 / 3;
@@ -227,7 +273,12 @@
         grid-column: 1 / 2;
         font-size:1.6rem;
        }
-
+     }
+     .for-nonjapanese:hover{
+       z-index: 15;
+       -webkit-transform: translateY(-30px);
+       -ms-transform: translateY(-30px);
+       transform: translateY(-30px);
      }
      .title4{
        grid-row: 1 / 2;

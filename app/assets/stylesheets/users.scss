@@ -3,7 +3,71 @@
   padding: 0;
 }
 #signUpModal{
-  font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
+  font-family:sofia-pro,"Noto Sans","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;;
+  height:1000px;
+  padding-top:50px;
+  .modal-header{
+    button{
+      margin-left: 90%;
+    .mh{
+      padding:0;
+     }
+    }
+    .hoge{
+      padding:0;
+    }
+  }
+  .modal-content{
+    background-color: white;
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+    padding-top: 30px;
+    width:460px;
+    height: 600px;
+    font-family:sans-serif;
+    border-radius: 10px;
+    h1{
+      font-weight:bold;
+      margin-bottom:40px;
+      margin-left:30%;
+    }
+    .header{
+      display: block;
+    }
+    .field{
+      input[type="email"] {
+              height: 40px;
+              margin-left:15%;
+          }
+      input[type="password"] {
+              height: 40px;
+              margin-left:15%;
+          }
+      input[type="password_confirmation"] {
+              height: 40px;
+              margin-left:15%;
+          }
+          }
+    .actions{
+      margin-top:20px;
+      margin-left:15%;
+    }
+    .or{
+      margin-top:20px;
+      margin-left:50%;
+    }
+    .facebook{
+      margin-top:20px;
+      margin-left:20%;
+    }
+  }
+  .footer{
+    border-top:0;
+  }
+}
+
+.user_signUp{
+  font-family:sofia-pro,"Noto Sans","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;;
   height:1000px;
   padding-top:50px;
   .container{
@@ -15,21 +79,7 @@
     height: 600px;
     font-family:sans-serif;
     border-radius: 10px;
-    h1{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
-      font-weight:bold;
-      margin-bottom:30px;
-      margin-left:50px;
-    }
-    .header{
-      display: block;
-    }
-    .field{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
-      margin-top: 10px;
-      input[type="username"] {
-              height: 40px;
-          }
+    .fields{
       input[type="email"] {
               height: 40px;
           }
@@ -39,36 +89,23 @@
       input[type="password_confirmation"] {
               height: 40px;
           }
-          }
-    .actions{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
+      margin-top:20%;
+    }
+    .otherOptions{
+      margin-top:10%;
+    }
+    .modal-footer{
       margin-top:10px;
     }
-    .small_link{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
-    }
-    .or{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
-      margin-left:120px;
-    }
-    .facebook{
-      font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
-      margin-top:10px;
-    }
-  }
-  .footer{
-    border-top:0;
   }
 }
 .user_signIn{
-  font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
   height:1000px;
   background-repeat: no-repeat;
   background-size:cover;
   padding-top: 50px;
 
   .container{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     background-color: white;
     border-top: solid 6px #1dc1d6;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
@@ -79,10 +116,8 @@
     border-radius: 10px;
   }
   h1{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
   }
   .field{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     margin-top: 20px;
     border-radius: 10px;
     input[type="email"] {
@@ -95,19 +130,296 @@
         }
   }
   .actions{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     margin-top: 20px;
     margin-bottom:10px;
   }
   .small_links{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
   }
   .or{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     margin-left:120px;
   }
   .facebook{
-    font-family: 'Bradley Hand','Segoe Script','Bradley Hand',sans-serif;
     margin-top:10px;
+  }
+}
+
+.user_edit{
+  padding-top:6%;
+  margin-left:20%;
+  margin-right:20%;
+  border: solid 1px #696a6c;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+
+  .userInfo{
+    margin-top:20px;
+    padding-left:15%;
+    margin-bottom:10%;
+  }
+  h2{
+    margin-bottom:10%;
+  }
+
+  .circle-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom:5%;
+  }
+
+  .field{
+    display: flex;
+    margin-top:20px;
+  }
+  .form-select{
+    display: flex;
+    margin-top:20px;
+  }
+  .area{
+    display: flex;
+    margin-top:20px;
+    border-radius: 20px;
+  }
+  .label{
+    width:30%;
+  }
+  hr {
+  height: 1px;
+  border: none;
+  border-top: 1px grey solid;
+  width: 70%;
+  }
+  .actions{
+    margin-top:20px;
+  }
+  .cancel{
+    margin-top:10%;
+  }
+  a:hover{
+    background-color:white;
+  }
+}
+
+.user_show{
+  display: flex;
+  justify-content: center;
+  padding-top:5%;
+  .mypage{
+    padding-top:8%;
+    width:50%;
+    height:900px;
+    .first-block{
+      background-color: #FAFAFA;
+      border:1px solid;
+      border-color:#aaaaaa;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+      height:50%;
+      display:grid;
+      grid-template-columns: 10% 30% 25% 25% 10%;
+      grid-template-rows: 5% 10% 25% 25% 25% 10%;
+
+      .image{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+      }
+      img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .username{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .to_edit{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .edit_button{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size:1rem;
+        border:2px solid;
+        border-color:#aaaaaa;
+        border-radius:20px;
+        width:100px;
+        height:30px;
+      }
+      .edit_button:hover{
+        color:white;
+        background-color:#aaaaaa;
+        text-decoration: none;
+      }
+      .nativeLanguage{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        display: flex;
+        align-items: center;//縦
+        justify-content: center;
+        font-size:1.2rem;
+        border:2px solid;
+        border-color:#aaaaaa;
+        border-radius: 10% / 50%;
+      }
+      .newLanguage{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size:1.2rem;
+        border:2px solid;
+        border-color:#aaaaaa;
+        border-radius: 10% / 50%;
+      }
+      .posts{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size:1.5rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .following{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size:1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .follow-btn{
+          border-radius:10px;
+        }
+      }
+      .follower{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size:1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+    .second-block{
+      height:20%;
+      margin-top:10px;
+       .introduction{
+         height:100%;
+         border:1px solid;
+         border-color:#aaaaaa;
+         border-radius: 20px;
+         box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+         padding:1rem 1rem 1rem 1rem;
+       }
+    }
+    .third-block{
+      margin-top:10px;
+      padding-bottom:20px;
+      font-size:1.1rem;
+      border:1px solid;
+      border-color:#aaaaaa;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+      h3{
+        margin-left:3%;
+        margin-top:3%;
+        margin-bottom:5%;
+      }
+      .homeCountry{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+      .nativeLanguage{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+      .newLanguage{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+      .languageLevel{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+      .age{
+        margin-left:25%;
+        margin-bottom:15px;
+      }
+      .job{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+      .residence{
+       margin-left:25%;
+       margin-bottom:15px;
+      }
+    }
+  }
+}
+.facebook{
+  color:white;
+}
+.small_link{
+  background-color:white;
+}
+.show_following{
+  padding-top:15%;
+  display: flex;
+  .following_box{
+    margin-left:5%;
+    border:1px solid;
+    border-color:#aaaaaa;
+    margin-bottom:1%;
+    height:200px;
+    width:400px;
+    .following_image{
+      margin-top:5%;
+      margin-left:10%;
+       img{
+         width: 150px;
+         height: 150px;
+         border-radius: 50%;
+         object-fit: cover;
+       }
+    }
+  }
+}
+.show_follower{
+  padding-top:10%;
+  .follower_image{
+     img{
+       width: 200px;
+       height: 200px;
+       border-radius: 50%;
+       object-fit: cover;
+     }
   }
 }
