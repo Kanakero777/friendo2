@@ -34,3 +34,5 @@
 
 # Ignore dotenv
 /.env
+.generators
+.rakeTasks
